@@ -1,0 +1,11 @@
+{
+  "name": "anomalynks",
+  "version": "1.0.0",
+  "description": "PDのintegration画面にタグ管理機能を追加 ex) https://cloudpack.pagerduty.com/services/XXXXXXX/integrations",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT"
+}

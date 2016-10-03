@@ -1,0 +1,18 @@
+#anomalynks {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  height: 100px;
+  background-color: #f2f2f2;
+  z-index: 10000000000;
+}
+
+#graph {
+  font: 14px helvetica neue, helvetica, arial, sans-serif;
+  height: 0;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
