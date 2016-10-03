@@ -1,0 +1,180 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+#anomalynks {
+    * {
+        box-sizing: border-box;
+    }
+    div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 10px;
+        font: inherit;
+        vertical-align: baseline;
+    }
+    /* HTML5 display-role reset for older browsers */
+    article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display: block; }
+    body {
+        line-height: 1;
+    }
+    ol,
+    ul {
+        list-style: none;
+    }
+    blockquote,
+    q {
+        quotes: none;
+    }
+    blockquote:before,
+    blockquote:after,
+    q:before,
+    q:after {
+        content: '';
+        content: none;
+    }
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+}
+
+$panelHeight: 56px;
+
+#anomalynks {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    z-index: 10000;
+
+    color: #FFF;
+    .control-panel {
+        z-index: 30000;
+        position: absolute;
+        bottom: -58px;
+        left: 0;
+        padding: 0 10px;
+        width: 100%;
+        height: $panelHeight;
+        line-height: 54px;
+        background: rgba(0, 0, 0, .65);
+        font-family: helvetica neue, helvetica, arial, sans-serif;
+        font-size: 16px;
+        text-align: left;
+        color: #fff;
+        transition: bottom 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+        &.show {
+            bottom: 0;
+            transition: bottom 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+        }
+        &.expanded {
+          top: 0;
+          bottom: auto;
+          transition: bottom 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+        }
+        &:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        .tab {
+            cursor: pointer;
+            position: absolute;
+            top: -30px;
+            right: 15px;
+            width: auto;
+            height: 30px;
+            padding: 0 5px;
+            text-align: center;
+            background: rgba(0, 0, 0, .65);
+            svg {
+                fill: #fff;
+                height: 30px;
+                transform: rotate(0deg);
+                transition: transform .3s;
+            }
+        }
+        &.show {
+          .tab svg {
+            transform: rotate(180deg);
+            transition: transform .3s;
+          }
+        }
+        p.urls {
+            float: left;
+            display: inline-block;
+            margin-right: 20px;
+        }
+        span.status {
+            padding: 1px 3px;
+            font-size: 12px;
+            background: #FFF;
+            color: rgba(0, 0, 0, .65);
+        }
+        .btns {
+            float: right;
+            font-size: 10px;
+        }
+        a.btn {
+            cursor: pointer;
+            margin-left: 15px;
+            padding: 1.05em 2.75em;
+            color: #28aadc;
+            background-color: #fff;
+            font-size: 1.2em;
+            font-weight: 300;
+            text-transform: uppercase;
+            border-radius: 12em;
+            border: .2em solid #28aadc;
+            -webkit-transition: color .3s, border .3s;
+            transition: background-color .3s, text-shadow .3s;
+        }
+        a.output {
+            color: #fff;
+            background-color: #6496c8;
+            text-shadow: -1px 1px #417cb8;
+            border: none;
+        }
+        a.output:hover {
+            background-color: #346392;
+            text-shadow: -1px 1px #27496d;
+        }
+        a.output:active {
+            background-color: #27496d;
+            text-shadow: -1px 1px #193047;
+        }
+        a.clear {
+            color: #fff;
+            background-color: #6496c8;
+            text-shadow: -1px 1px #417cb8;
+            border: none;
+        }
+        a.clear:hover {
+            background-color: #346392;
+            text-shadow: -1px 1px #27496d;
+        }
+        a.clear:active {
+            background-color: #27496d;
+            text-shadow: -1px 1px #193047;
+        }
+    }
+}
+
+#graph {
+    z-index: 20000;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: #FFF;
+    font: 14px helvetica neue, helvetica, arial, sans-serif;
+    
+    &.expanded {
+      // transition: height 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+}

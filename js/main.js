@@ -1,10 +1,20 @@
 var element = document.createElement("div");
 element.id = "anomalynks";
 
-var content = '{{ status }} {{ url }}' +
-    '<button type="button" v-on:click="clearHistory">clear</button>' +
-    '<button type="button" v-on:click="render">output</button>' +
-    '<div id="graph"></div>';
+var content = '<div class="control-panel" :class="{ show : isExpand.controlPanel, expanded: isExpand.graph }">' +
+        '<a class="tab" v-on:click="switchControlePanel">' +
+            '<svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">' +
+                '<path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>' +
+                '<path d="M0-.75h24v24H0z" fill="none"/>' +
+            '</svg>' +
+        '</a>' +
+        '<p class="urls"><span class="status">{{ status }}</span> {{ url }}</p>' +
+        '<div class="btns">' +
+            '<a class="btn clear" v-on:click="clearHistory">clear</a>' +
+            '<a class="btn output" v-on:click="switchGraph">output</a>' +
+        '</div>' +
+    '</div>' +
+    '<div id="graph" :class="{ expanded: isExpand.graph }"></div>';
 element.innerHTML = content;
 
 var parent = document.body;
@@ -18,6 +28,10 @@ new Vue({
         history: [],
         status: "",
         url: "",
+        isExpand: {
+            controlPanel: false,
+            graph: false
+        }
     },
     created: function () {
         var that = this;
@@ -34,6 +48,22 @@ new Vue({
         );
     },
     methods: {
+        switchControlePanel: function () {
+            this.isExpand.controlPanel = !this.isExpand.controlPanel;
+        },
+
+        switchGraph: function () {
+            if (this.isExpand.graph == false) {
+                this.isExpand.graph = true;
+                this.render();
+            }
+            else {
+                this.isExpand.graph = false;
+                document.getElementById('graph').innerHTML = "";
+                document.getElementById("graph").style.height = "0";
+            }
+        },
+
         getHistory: function () {
           var that = this;
           chrome.runtime.sendMessage(
