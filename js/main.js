@@ -1,17 +1,18 @@
 var element = document.createElement("div");
 element.id = "anomalynks";
 
-var content = '<div class="control-panel" :class="{ show : isExpand.controlPanel, expanded: isExpand.graph }">' +
-        '<a class="tab" v-on:click="switchControlePanel">' +
+var content = '<div class="anls-control-panel" :class="{ show : isExpand.controlPanel, expanded: isExpand.graph }">' +
+        '<a class="anls-tab" v-on:click="switchControlePanel">' +
             '<svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">' +
                 '<path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>' +
                 '<path d="M0-.75h24v24H0z" fill="none"/>' +
             '</svg>' +
         '</a>' +
-        '<p class="urls"><span class="status">{{ status }}</span> {{ url }}</p>' +
-        '<div class="btns">' +
-            '<a class="btn clear" v-on:click="clearHistory">clear</a>' +
-            '<a class="btn output" v-on:click="switchGraph">output</a>' +
+        '<p class="anls-urls"><span class="anls-status">{{ status }}</span> {{ url }}</p>' +
+        '<div class="anls-btns">' +
+            '<a class="anls-btn clear" v-on:click="clearHistory">clear</a>' +
+            '<a class="anls-btn output" :class="{ hover: isExpand.graph }" v-on:click="switchGraph">output' +
+            '</a>' +
         '</div>' +
     '</div>' +
     '<div id="graph" :class="{ expanded: isExpand.graph }"></div>';
