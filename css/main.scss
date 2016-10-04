@@ -2,8 +2,6 @@
    v2.0 | 20110126
    License: none (public domain)
 */
-
-@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 #anomalynks {
     * {
         box-sizing: border-box;
@@ -51,7 +49,7 @@ $panelHeight: 56px;
     z-index: 10000;
 
     color: #FFF;
-    .control-panel {
+    .anls-control-panel {
         z-index: 30000;
         position: absolute;
         bottom: -58px;
@@ -80,7 +78,7 @@ $panelHeight: 56px;
             display: table;
             clear: both;
         }
-        .tab {
+        .anls-tab {
             cursor: pointer;
             position: absolute;
             top: -30px;
@@ -98,27 +96,27 @@ $panelHeight: 56px;
             }
         }
         &.show {
-          .tab svg {
+          .anls-tab svg {
             transform: rotate(180deg);
             transition: transform .3s;
           }
         }
-        p.urls {
+        p.anls-urls {
             float: left;
             display: inline-block;
             margin-right: 20px;
         }
-        span.status {
+        span.anls-status {
             padding: 1px 3px;
             font-size: 12px;
             background: #FFF;
             color: rgba(0, 0, 0, .65);
         }
-        .btns {
+        .anls-btns {
             float: right;
             font-size: 10px;
         }
-        a.btn {
+        a.anls-btn {
             cursor: pointer;
             margin-left: 15px;
             padding: 1.05em 2.75em;
@@ -137,12 +135,19 @@ $panelHeight: 56px;
             background-color: #6496c8;
             text-shadow: -1px 1px #417cb8;
             border: none;
+
+            svg {
+                fill: #fff;
+            }
         }
-        a.output:hover {
+        a.output:hover,
+        a.output.hover {
             background-color: #346392;
             text-shadow: -1px 1px #27496d;
+            text-decoration: none;
         }
-        a.output:active {
+        a.output:active,
+        a.output.active {
             background-color: #27496d;
             text-shadow: -1px 1px #193047;
         }
@@ -155,6 +160,7 @@ $panelHeight: 56px;
         a.clear:hover {
             background-color: #346392;
             text-shadow: -1px 1px #27496d;
+            text-decoration: none;
         }
         a.clear:active {
             background-color: #27496d;
@@ -173,8 +179,4 @@ $panelHeight: 56px;
     height: 0;
     background: #FFF;
     font: 14px helvetica neue, helvetica, arial, sans-serif;
-    
-    &.expanded {
-      // transition: height 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
-    }
 }

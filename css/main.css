@@ -2,7 +2,6 @@
    v2.0 | 20110126
    License: none (public domain)
 */
-@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 #anomalynks {
   /* HTML5 display-role reset for older browsers */ }
   #anomalynks * {
@@ -41,7 +40,7 @@
   bottom: 0;
   z-index: 10000;
   color: #FFF; }
-  #anomalynks .control-panel {
+  #anomalynks .anls-control-panel {
     z-index: 30000;
     position: absolute;
     bottom: -58px;
@@ -56,18 +55,18 @@
     text-align: left;
     color: #fff;
     transition: bottom 0.5s cubic-bezier(0.22, 0.61, 0.36, 1); }
-    #anomalynks .control-panel.show {
+    #anomalynks .anls-control-panel.show {
       bottom: 0;
       transition: bottom 0.5s cubic-bezier(0.22, 0.61, 0.36, 1); }
-    #anomalynks .control-panel.expanded {
+    #anomalynks .anls-control-panel.expanded {
       top: 0;
       bottom: auto;
       transition: bottom 0.5s cubic-bezier(0.22, 0.61, 0.36, 1); }
-    #anomalynks .control-panel:after {
+    #anomalynks .anls-control-panel:after {
       content: "";
       display: table;
       clear: both; }
-    #anomalynks .control-panel .tab {
+    #anomalynks .anls-control-panel .anls-tab {
       cursor: pointer;
       position: absolute;
       top: -30px;
@@ -77,27 +76,27 @@
       padding: 0 5px;
       text-align: center;
       background: rgba(0, 0, 0, 0.65); }
-      #anomalynks .control-panel .tab svg {
+      #anomalynks .anls-control-panel .anls-tab svg {
         fill: #fff;
         height: 30px;
         transform: rotate(0deg);
         transition: transform .3s; }
-    #anomalynks .control-panel.show .tab svg {
+    #anomalynks .anls-control-panel.show .anls-tab svg {
       transform: rotate(180deg);
       transition: transform .3s; }
-    #anomalynks .control-panel p.urls {
+    #anomalynks .anls-control-panel p.anls-urls {
       float: left;
       display: inline-block;
       margin-right: 20px; }
-    #anomalynks .control-panel span.status {
+    #anomalynks .anls-control-panel span.anls-status {
       padding: 1px 3px;
       font-size: 12px;
       background: #FFF;
       color: rgba(0, 0, 0, 0.65); }
-    #anomalynks .control-panel .btns {
+    #anomalynks .anls-control-panel .anls-btns {
       float: right;
       font-size: 10px; }
-    #anomalynks .control-panel a.btn {
+    #anomalynks .anls-control-panel a.anls-btn {
       cursor: pointer;
       margin-left: 15px;
       padding: 1.05em 2.75em;
@@ -110,26 +109,30 @@
       border: .2em solid #28aadc;
       -webkit-transition: color .3s, border .3s;
       transition: background-color .3s, text-shadow .3s; }
-    #anomalynks .control-panel a.output {
+    #anomalynks .anls-control-panel a.output {
       color: #fff;
       background-color: #6496c8;
       text-shadow: -1px 1px #417cb8;
       border: none; }
-    #anomalynks .control-panel a.output:hover {
+    #anomalynks .anls-control-panel a.output:hover,
+    #anomalynks .anls-control-panel a.output.hover {
       background-color: #346392;
-      text-shadow: -1px 1px #27496d; }
-    #anomalynks .control-panel a.output:active {
+      text-shadow: -1px 1px #27496d;
+      text-decoration: none; }
+    #anomalynks .anls-control-panel a.output:active,
+    #anomalynks .anls-control-panel a.output.active {
       background-color: #27496d;
       text-shadow: -1px 1px #193047; }
-    #anomalynks .control-panel a.clear {
+    #anomalynks .anls-control-panel a.clear {
       color: #fff;
       background-color: #6496c8;
       text-shadow: -1px 1px #417cb8;
       border: none; }
-    #anomalynks .control-panel a.clear:hover {
+    #anomalynks .anls-control-panel a.clear:hover {
       background-color: #346392;
-      text-shadow: -1px 1px #27496d; }
-    #anomalynks .control-panel a.clear:active {
+      text-shadow: -1px 1px #27496d;
+      text-decoration: none; }
+    #anomalynks .anls-control-panel a.clear:active {
       background-color: #27496d;
       text-shadow: -1px 1px #193047; }
 
