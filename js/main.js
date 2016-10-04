@@ -57,11 +57,11 @@ new Vue({
             if (this.isExpand.graph == false) {
                 this.isExpand.graph = true;
                 this.render();
-            }
-            else {
+            } else {
                 this.isExpand.graph = false;
                 document.getElementById('graph').innerHTML = "";
                 document.getElementById("graph").style.height = "0";
+                document.getElementById("anomalynks").style.height = "0";
             }
         },
 
@@ -98,6 +98,7 @@ new Vue({
                             data: {
                                 id: history.url,
                                 name: history.url,
+                                status: history.status,
                                 weight: 10,
                                 faveColor: color,
                                 faveShape: "rectangle"
@@ -135,15 +136,14 @@ new Vue({
                                     'width': 'mapData(weight, 40, 80, 20, 60)',
                                     'content': 'data(name)',
                                     'text-valign': 'center',
-                                    // 'text-outline-width': 2,
-                                    // 'text-outline-color': 'data(faveColor)',
                                     'background-color': 'data(faveColor)',
                                     'color': '#000'
                                 })
                             .selector(':selected')
                                 .css({
                                     'border-width': 3,
-                                    'border-color': '#333'
+                                    'border-color': '#333',
+                                    'content': 'data(status)',
                                 })
                             .selector('edge')
                                 .css({
@@ -156,11 +156,6 @@ new Vue({
                                     'source-arrow-color': 'data(faveColor)',
                                     'target-arrow-color': 'data(faveColor)'
                                 })
-                            .selector('edge.questionable')
-                                .css({
-                                    'line-style': 'dotted',
-                                    'target-arrow-shape': 'diamond'
-                                })
                             .selector('.faded')
                                 .css({
                                     'opacity': 0.25,
@@ -171,9 +166,6 @@ new Vue({
                             nodes: nodes,
                             edges: edges
                         }
-                    });
-                    cy.on('zoom', function(event) {
-                      console.log(cy.zoom());
                     });
                 }
             )
