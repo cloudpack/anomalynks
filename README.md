@@ -1,3 +1,5 @@
+![logo](https://raw.githubusercontent.com/wiki/cloudpack/anomalynks/images/anomalynks.png)
+
 # anomalynks
 
 Anomalynks is Google Chrome Extension that detect dead-link on your site.
